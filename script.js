@@ -53,12 +53,12 @@ $(document).ready(function(){
           $(this).addClass('future')
         }
       })
-    
-
     }
 
 
-    setColour()
+    setInterval(function(){
+      setColour()   
+    }, 1800000)
 
 
 
