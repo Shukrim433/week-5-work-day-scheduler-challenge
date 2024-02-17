@@ -11,8 +11,10 @@ $(document).ready(function(){
     // useful when saving the description in local storage?
 
     $('.saveBtn').on('click' , function(){
-      var userTask = $('this').siblings('.description').val()
-      var timeBlockHour = $('this').parent().attr('id')
+      var userTask = $(this).siblings('.description').val()
+      var timeBlockHour = $(this).parent().attr('id')
+
+      localStorage.setItem(timeBlockHour , userTask)
     })
 
 
