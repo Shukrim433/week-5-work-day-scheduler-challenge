@@ -34,10 +34,20 @@ $(document).ready(function(){
     function setColour(){
 
       var currentHour = dayjs().hour()
-      
+
       $('.time-block').each(function(){
-        var timeBlockHour = timeBlockTime.split('-', [1]) //takes the timeBlockTime string and splits it into an array of substrings using the hyphen - as a delimiter. [1] specifies that we want to keep only the second part of the split string and it returns this second part as an array element.
+        var timeBlockHour = parseInt($(this).attr('id').split('-', [1]))//takes the timeBlockTime string and splits it into an array of substrings using the hyphen - as a delimiter. [1] specifies that we want to keep only the second part of the split string and it returns this second part as an array element.
+        //parseInt converts the second part of the split string (the  hour number at index 1 of the array) into an integer.
+        if (currentHour > timeBlockHour){
+          $(this).children(div).addClass('past')
+        }else if (currentHour === timeBlockHour){
+          $(this).children(div).addClass('present')
+        }else{
+          $(this).children(div).addClass('future')
+        }
       })
+
+      setColour()
       
 
 
