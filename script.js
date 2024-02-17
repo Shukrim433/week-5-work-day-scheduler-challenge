@@ -12,22 +12,16 @@ $(document).ready(function(){
 
     $('.saveBtn').on('click' , function(){
       var userTask = $(this).siblings('.description').val()
-      var timeBlockHour = $(this).parent().attr('id')
+      var timeBlockTime = $(this).parent().attr('id')
 
-      localStorage.setItem(timeBlockHour , userTask)
+      localStorage.setItem(timeBlockTime , userTask)
 
       $('.notification').text('your event was saved')
 
       setTimeout(function(){
         $('.notification').text('')
       } , 2000)
-
-
     })
-
-
-
-
 
     //
     // TODO: Add code to apply the past, present, or future class to each time
@@ -36,6 +30,31 @@ $(document).ready(function(){
     // past, present, and future classes? How can Day.js be used to get the
     // current hour in 24-hour time?
     //
+
+    function setColour(){
+
+      var currentHour = dayjs().hour()
+      
+      $('.time-block').each(function(){
+        var timeBlockHour = timeBlockTime.split('-', [1]) //takes the timeBlockTime string and splits it into an array of substrings using the hyphen - as a delimiter. [1] specifies that we want to keep only the second part of the split string and it returns this second part as an array element.
+      })
+      
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
     // attribute of each time-block be used to do this?
