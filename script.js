@@ -15,6 +15,14 @@ $(document).ready(function(){
       var timeBlockHour = $(this).parent().attr('id')
 
       localStorage.setItem(timeBlockHour , userTask)
+
+      $('.notification').text('your event was saved')
+
+      setTimeout(function(){
+        $('.notification').text('')
+      } , 2000)
+
+
     })
 
 
