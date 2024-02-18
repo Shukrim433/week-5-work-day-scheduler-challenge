@@ -39,7 +39,7 @@ $(document).ready(function(){
        
         var timeBlockHour = parseInt($(this).attr('id').split('-')[1])//takes the timeBlockTime string and splits it into an array of substrings using the hyphen - as a delimiter. [1] specifies that we want to keep only the second part of the split string and it returns this second part as an array element.
         //parseInt converts the second part of the split string (the  hour number at index 1 of the array) into an integer.
-        console.log(timeBlockHour)
+  
         if (currentHour > timeBlockHour){
           $(this).removeClass('future present');
           $(this).addClass('past')
@@ -55,12 +55,26 @@ $(document).ready(function(){
       })
     }
     setColour()
-    
+
 
     // TODO: Add code to get any user input that was saved in localStorage and set
     // the values of the corresponding textarea elements. HINT: How can the id
     // attribute of each time-block be used to do this?
-    //
+    // So when the page reloads the users input stays on the screen (doesnt vanish)
+
+    function setTextArea(){
+
+      $('.time-block').each(function(){ // this line is basically saying it will apply this 'function(){})' to every element with that css selector(.timeblock div)
+        var timeBlockId = $(this).attr('id') // selects the id attribute of each timeblock div
+        var savedUserInput = localStorage.getItem(timeBlockId) // uses the id (as the key) to retrieve the corresponding saved user input from localStorage
+
+        if (savedUserInput !== null){ // so if there's nothing in the local storage for a particular timeblock then it just remains empty
+          $(this).children('.description').val(savedUserInput)
+        }
+      })
+      
+    }
+    setTextArea()
 
 
 
