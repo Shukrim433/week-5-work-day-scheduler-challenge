@@ -77,11 +77,18 @@ $(document).ready(function(){
     setTextArea()
 
 
-
-
-
-
     // TODO: Add code to display the current date in the header of the page.
+
+    function displayDateInHeader(){
+      var today = dayjs().format('dddd, MMMM D, YYYY h:mm A')
+      $('#currentDay').text(today)
+      
+    }
+    displayDateInHeader()
+
+
+
+
   });
 })
 
